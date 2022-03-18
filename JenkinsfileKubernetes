@@ -39,11 +39,7 @@ node node("k8s") {
      
      stage("Deploy To Kuberates Cluster"){
     
-       kubernetesDeploy(
-         configs: 'springBootMongo.yml', 
-         kubeconfigId: 'k8s-credentials',
-         enableConfigSubstitution: true
-        )
+       kubernetesDeploy configs: 'springBootMongo.yml', kubeConfig: [path: ''], kubeconfigId: 'k8s-credentials', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
      }
      
 	 
