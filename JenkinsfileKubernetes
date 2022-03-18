@@ -45,12 +45,14 @@ node{
      }
      
      stage("Deploy To Kuberates Cluster"){
+     node k8s{
        kubernetesDeploy(
          configs: 'springBootMongo.yml', 
          kubeconfigId: 'KUBERNATES_CONFIG',
          enableConfigSubstitution: true
         )
      }
+     
 	 
 	  /**
       stage("Deploy To Kuberates Cluster"){
@@ -59,4 +61,4 @@ node{
      
 }
 
-
+}
