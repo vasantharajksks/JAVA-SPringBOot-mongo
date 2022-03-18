@@ -45,7 +45,7 @@ node{
      }
      
      stage("Deploy To Kuberates Cluster"){
-     node k8s{
+     node("k8s"){
        kubernetesDeploy(
          configs: 'springBootMongo.yml', 
          kubeconfigId: 'KUBERNATES_CONFIG',
