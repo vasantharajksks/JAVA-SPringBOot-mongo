@@ -1,4 +1,4 @@
-node{
+node node("k8s") {
      
     stage('SCM Checkout'){
         git credentialsId: 'GIT_CREDENTIALS', url:  'https://github.com/vasantharajksks/JAVA-SPringBOot-mongo.git',branch: 'main'
@@ -38,7 +38,7 @@ node{
      }
      
      stage("Deploy To Kuberates Cluster"){
-     node("k8s"){
+    
        kubernetesDeploy(
          configs: 'springBootMongo.yml', 
          kubeconfigId: 'k8s-credentials',
@@ -54,4 +54,4 @@ node{
      
 }
 
-}
+
