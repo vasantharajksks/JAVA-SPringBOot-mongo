@@ -40,7 +40,9 @@ node node("k8s") {
 	 
 	
       stage("Deploy To Kuberates Cluster"){
-        sh 'kubectl apply -f springBootMongo.yml'
+      
+      	sh 'sudo kubectl delete -f springBootMongo.yml'
+        sh 'sudo kubectl apply -f springBootMongo.yml'
       }
      
 }
