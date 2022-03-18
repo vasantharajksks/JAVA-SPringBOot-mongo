@@ -37,16 +37,11 @@ node node("k8s") {
         sh 'docker push vasanth24/spring-boot-mongo'
      }
      
-     stage("Deploy To Kuberates Cluster"){
-    
-       kubernetesDeploy configs: 'springBootMongo.yml', kubeConfig: [path: ''], kubeconfigId: 'k8s-credentials', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
-     }
-     
 	 
-	  /**
+	
       stage("Deploy To Kuberates Cluster"){
         sh 'kubectl apply -f springBootMongo.yml'
-      } **/
+      }
      
 }
 
