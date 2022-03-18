@@ -41,7 +41,7 @@ node{
      node("k8s"){
        kubernetesDeploy(
          configs: 'springBootMongo.yml', 
-         kubeconfigId: 'KUBERNATES_CONFIG',
+         kubeconfigId: 'k8s-credentials',
          enableConfigSubstitution: true
         )
      }
