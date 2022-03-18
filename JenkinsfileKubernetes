@@ -12,14 +12,14 @@ node{
     } 
     
    stage("build & SonarQube analysis") {
-          node {
+          
               withSonarQubeEnv('sonarserver') {
 	         def mavenHome =  tool name: "MAVEN", type: "maven"
       		 def mavenCMD = "${mavenHome}/bin/mvn"
      		 sh "${mavenCMD} clean package sonar:sonar"
                  
               }
-          }
+          
       }
 
       stage("Quality Gate"){
